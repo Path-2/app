@@ -1,7 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../contexts/theme/theme";
+import { PagesEnum } from "../../models/enums";
+
+const title = (title: string) => (document.title = `Path2 | ${title}`);
+
 export const FakeLogo = () => {
+  const navigator = useNavigate();
   return (
     <div
       style={{
@@ -9,7 +14,12 @@ export const FakeLogo = () => {
         color: "#fff",
         textAlign: "center",
         padding: "10px",
+        cursor: "pointer",
       }}
+      onClick={() => {
+        navigator('/');
+        title(PagesEnum.Home);
+      } }
     >
       Path2
     </div>
@@ -31,7 +41,7 @@ export const Options: React.FC<OptionsProp> = ({ options }) => {
   const { colors } = useTheme();
   const [showText, setShowText] = React.useState(true);
 
-  const title = (title: string) => (document.title = `Path2 | ${title}`);
+  
 
   React.useEffect(() => {
     setShowText(document.body.clientWidth > 430);
