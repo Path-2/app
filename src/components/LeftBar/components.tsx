@@ -29,8 +29,17 @@ export const Options: React.FC<OptionsProp> = ({ options }) => {
   const navigator = useNavigate();
   const path = window.location.pathname;
   const { colors } = useTheme();
+  const [showText, setShowText] = React.useState(true);
 
   const title = (title: string) => (document.title = `Path2 | ${title}`);
+
+  React.useEffect(() => {
+    setShowText(document.body.clientWidth > 430);
+
+    window.addEventListener("resize", (ev) => {
+      setShowText(document.body.clientWidth > 430);
+    });
+  }, []);
 
   return (
     <div
@@ -38,7 +47,7 @@ export const Options: React.FC<OptionsProp> = ({ options }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        cursor: 'pointer'
+        cursor: "pointer",
       }}
     >
       {options.map((option) => (
@@ -50,20 +59,36 @@ export const Options: React.FC<OptionsProp> = ({ options }) => {
           key={option.title}
           style={{
             borderRight: `3px solid ${
-              path === option.path ? colors.primary.bg : colors.secondary.bg
+              path === option.path ? colors.primary.txt : colors.secondary.bg
             }`,
             padding: "5px",
             color: `${colors.secondary.txt}`,
             fontSize: "12pt",
             fontWeight: `${path === option.path ? "bold" : "400"}`,
-            display: "grid",
-            gridTemplateColumns: "15% auto",
+            display: "flex",
+            justifyContent: `${showText ? "flex-start" : "center"}`,
           }}
         >
-          <span style={{ textAlign: "center" }}>
+          <span
+            style={{
+              textAlign: "center",
+              width: `${showText ? "20%" : "100%"}`,
+            }}
+          >
             {path === option.path ? option.activeIcon : option.inactiveIcon}
           </span>
-          <span style={{ textAlign: "center" }}>{option.title}</span>
+          {showText ? (
+            <span
+              style={{
+                textAlign: "center",
+                width: "100%",
+              }}
+            >
+              {option.title}
+            </span>
+          ) : (
+            ""
+          )}
         </div>
       ))}
     </div>

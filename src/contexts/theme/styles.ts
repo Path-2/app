@@ -1,4 +1,4 @@
-import { primary } from "../../colors";
+import { primary, secondary } from "../../colors";
 
 export const light = {
   primary: {
@@ -23,7 +23,7 @@ export const dark = {
   },
   secondary: {
     txt: '#fff',
-    bg: primary,
+    bg: secondary,
     bgBt: primary,
     txtBt: "#fff",
   },

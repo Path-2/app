@@ -7,7 +7,6 @@ import { PagesEnum } from "../../models/enums";
 export default function LeftBar() {
   const { colors } = useTheme();
 
-
   const options = [
     {
       title: PagesEnum.Home,
