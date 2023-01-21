@@ -1,4 +1,4 @@
-import { fontSize } from "@mui/system";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../contexts/theme/theme";
 export const FakeLogo = () => {
@@ -29,18 +29,24 @@ export const Options: React.FC<OptionsProp> = ({ options }) => {
   const navigator = useNavigate();
   const path = window.location.pathname;
   const { colors } = useTheme();
-  console.log(path);
+
+  const title = (title: string) => (document.title = `Path2 | ${title}`);
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
+        cursor: 'pointer'
       }}
     >
-      {options.map(option => (
+      {options.map((option) => (
         <div
-          onClick={() => navigator(option.path)}
+          onClick={() => {
+            navigator(option.path);
+            title(option.title);
+          }}
           key={option.title}
           style={{
             borderRight: `3px solid ${

@@ -2,6 +2,7 @@ import { useTheme } from "../../contexts/theme/theme";
 import { FakeLogo, Options } from "./components";
 import { Container } from "./styles";
 import { AiOutlineHome, AiFillHome } from "react-icons/ai";
+import { PagesEnum } from "../../models/enums";
 
 export default function LeftBar() {
   const { colors } = useTheme();
@@ -9,14 +10,32 @@ export default function LeftBar() {
 
   const options = [
     {
-      title: "Home",
+      title: PagesEnum.Home,
       path: "/",
       activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
       inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
     },
     {
-      title: "Search",
-      path: "/home/search",
+      title: PagesEnum.Community,
+      path: `/${PagesEnum.Community.toLowerCase()}`,
+      activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
+      inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
+    },
+    {
+      title: PagesEnum.Search,
+      path: `/${PagesEnum.Search.toLowerCase()}`,
+      activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
+      inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
+    },
+    {
+      title: PagesEnum.Rotes,
+      path: `/${PagesEnum.Rotes.toLowerCase()}`,
+      activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
+      inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
+    },
+    {
+      title: PagesEnum.Settings,
+      path: `/${'definicoes'}`,
       activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
       inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
     },
