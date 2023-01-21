@@ -8,7 +8,7 @@ const ThemeContext = React.createContext({
 });
 
 export const ThemeProvider = (props: any): JSX.Element => {
-  const colorScheme = localStorage.getItem("schema") || "light";
+  const colorScheme = localStorage.getItem("schema") || "dark";
   /*
    * To enable changing the app theme dynamically in the app (run-time)
    * we're gonna use useState so we can override the default device theme

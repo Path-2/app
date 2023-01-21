@@ -14,31 +14,7 @@ export default function LeftBar() {
       path: "/",
       activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
       inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
-    },
-    {
-      title: PagesEnum.Community,
-      path: `/${PagesEnum.Community.toLowerCase()}`,
-      activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
-      inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
-    },
-    {
-      title: PagesEnum.Search,
-      path: `/${PagesEnum.Search.toLowerCase()}`,
-      activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
-      inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
-    },
-    {
-      title: PagesEnum.Rotes,
-      path: `/${PagesEnum.Rotes.toLowerCase()}`,
-      activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
-      inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
-    },
-    {
-      title: PagesEnum.Settings,
-      path: `/${'definicoes'}`,
-      activeIcon: <AiFillHome color={colors.secondary.txt} size={20} />,
-      inactiveIcon: <AiOutlineHome color={colors.secondary.txt} size={20} />,
-    },
+    }
   ];
   
   return (
