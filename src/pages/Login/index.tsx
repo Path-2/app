@@ -8,14 +8,14 @@ import { useTheme } from "../../contexts/theme/theme";
 import { FakeLogo } from "../../components/LeftBar/components";
 import { primary } from "../../colors";
 
-export const Login = () => {
+export default function Login() {
   const size = { width: 35, height: 35 };
   const { colors } = useTheme();
 
   return (
     <Container>
       <FormLogin style={{ background: colors.primary.bg }}>
-        <FakeLogo color={primary} />
+        <FakeLogo color={primary} unLinked />
         <InputContainer>
           <label
             htmlFor="username"
@@ -70,9 +70,9 @@ export const Login = () => {
             color: colors.primary.txt,
           }}
         >
-          É novo no Path? <Link to={"/"}>Criar conta</Link>
+          É novo no Path? <Link to={"/signup"}>Criar conta</Link>
         </span>
       </FormLogin>
     </Container>
   );
-};
+}
