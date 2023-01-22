@@ -5,13 +5,13 @@ import { PagesEnum } from "../../models/enums";
 
 const title = (title: string) => (document.title = `Path2 | ${title}`);
 
-export const FakeLogo = () => {
+export const FakeLogo = ({color}:any) => {
   const navigator = useNavigate();
   return (
     <div
       style={{
         fontSize: "35pt",
-        color: "#fff",
+        color: color ? color : "#fff",
         textAlign: "center",
         padding: "10px",
         cursor: "pointer",
