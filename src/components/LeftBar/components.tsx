@@ -5,7 +5,7 @@ import { PagesEnum } from "../../models/enums";
 
 const title = (title: string) => (document.title = `Path2 | ${title}`);
 
-export const FakeLogo = ({color}:any) => {
+export const FakeLogo = ({ color, unLinked }: any) => {
   const navigator = useNavigate();
   return (
     <div
@@ -14,12 +14,14 @@ export const FakeLogo = ({color}:any) => {
         color: color ? color : "#fff",
         textAlign: "center",
         padding: "10px",
-        cursor: "pointer",
+        cursor: unLinked ? "default" : "pointer",
       }}
       onClick={() => {
-        navigator('/');
-        title(PagesEnum.Home);
-      } }
+        if (!unLinked) {
+          navigator("/");
+          title(PagesEnum.Home);
+        }
+      }}
     >
       Path2
     </div>
@@ -40,8 +42,6 @@ export const Options: React.FC<OptionsProp> = ({ options }) => {
   const path = window.location.pathname;
   const { colors } = useTheme();
   const [showText, setShowText] = React.useState(true);
-
-  
 
   React.useEffect(() => {
     setShowText(document.body.clientWidth > 430);

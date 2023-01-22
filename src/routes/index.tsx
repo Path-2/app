@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute";
-import Home from "../pages/home";
-import { Login } from "../pages/Login";
+import { Home, Login, Signup } from "../pages";
 
 export default function Router() {
   return (
     <Routes>
-      <Route path="/" element={<ProtectedRoute component={<Home />}/>} />
+      <Route path="/" element={<ProtectedRoute component={<Home />} />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   );
 }
