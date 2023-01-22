@@ -5,17 +5,21 @@ import LeftBar from "./components/LeftBar";
 import { Container } from "./styles";
 import { ThemeProvider } from "./contexts/theme/theme";
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider, useToken } from "./contexts/auth";
 
 function App() {
+  const { token } = useToken();
   return (
-    <ThemeProvider>
-      <Container>
-        <BrowserRouter>
-          <LeftBar />
-          <Router />
-        </BrowserRouter>
-      </Container>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <Container>
+          <BrowserRouter>
+            {token ? <LeftBar /> : <></>}
+            <Router />
+          </BrowserRouter>
+        </Container>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

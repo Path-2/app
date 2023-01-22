@@ -3,5 +3,6 @@ export enum PagesEnum {
     Search = 'Pesquisa',
     Rotes = 'Rotas',
     Settings = 'Definições',
-    Community = 'Comunidade'
+    Community = 'Comunidade',
+    Login = 'Login'
 }
