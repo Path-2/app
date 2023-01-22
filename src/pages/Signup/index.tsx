@@ -1,15 +1,12 @@
 import { Input } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
 import { ButtonSignup, Container, FormSignup, InputContainer } from "./styles";
-import { ReactComponent as GoogleIcon } from "../../assets/icons/google.svg";
-import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../contexts/theme/theme";
 import { FakeLogo } from "../../components/LeftBar/components";
 import { primary } from "../../colors";
+import { GoogleButton, FacebookButton } from "../../components";
 
 export default function Signup() {
-  const size = { width: 35, height: 35 };
   const { colors } = useTheme();
 
   return (
@@ -17,12 +14,8 @@ export default function Signup() {
       <FormSignup style={{ background: colors.primary.bg }}>
         <FakeLogo color={primary} unLinked />
         <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-          <IconButton>
-            <GoogleIcon {...size} />
-          </IconButton>
-          <IconButton>
-            <FacebookIcon {...size} />
-          </IconButton>
+          <GoogleButton />
+          <FacebookButton />
         </div>
         <span
           style={{

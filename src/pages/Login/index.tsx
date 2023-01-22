@@ -1,15 +1,13 @@
 import { Input } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import { ButtonLogin, Container, FormLogin, InputContainer } from "./styles";
-import { ReactComponent as GoogleIcon } from "../../assets/icons/google.svg";
-import { ReactComponent as FacebookIcon } from "../../assets/icons/facebook.svg";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../contexts/theme/theme";
-import { FakeLogo } from "../../components/LeftBar/components";
+
 import { primary } from "../../colors";
+import { GoogleButton, FacebookButton } from "../../components";
+import { FakeLogo } from "../../components/LeftBar/components";
+import { useTheme } from "../../contexts/theme/theme";
+import { ButtonLogin, Container, FormLogin, InputContainer } from "./styles";
 
 export default function Login() {
-  const size = { width: 35, height: 35 };
   const { colors } = useTheme();
 
   return (
@@ -56,12 +54,8 @@ export default function Login() {
           Ou entre com...
         </span>
         <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-          <IconButton>
-            <GoogleIcon {...size} />
-          </IconButton>
-          <IconButton>
-            <FacebookIcon {...size} />
-          </IconButton>
+          <GoogleButton />
+          <FacebookButton />
         </div>
         <span
           style={{

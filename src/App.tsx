@@ -1,14 +1,19 @@
 import React from "react";
-import "./App.css";
-import Router from "./routes";
-import LeftBar from "./components/LeftBar";
-import { Container } from "./styles";
-import { ThemeProvider } from "./contexts/theme/theme";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider, useToken } from "./contexts/auth";
+import { ThemeProvider } from "./contexts/theme/theme";
+import Router from "./routes";
+import { Container } from "./styles";
+
+import "./App.css";
+import { LeftBar } from "./components";
 
 function App() {
   const { token } = useToken();
+
+  //to clean all console.log
+  //console.log = () => {}
+
   return (
     <AuthProvider>
       <ThemeProvider>
