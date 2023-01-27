@@ -29,7 +29,8 @@
   },
   "scripts": {
     "start": "SET HTTPS=true && react-dotenv && react-scripts start",
-    "build": "SET HTTPS=true && react-dotenv && react-scripts build",
+    "build": "EXPORT HTTPS=true && react-dotenv && react-scripts build",
+    "build:win": "SET HTTPS=true && react-dotenv && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
